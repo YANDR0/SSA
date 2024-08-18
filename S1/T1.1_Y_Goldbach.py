@@ -28,7 +28,7 @@ def goldbach(result):
     return "Goldbach's conjecture is wrong."
             
 
-### Pues ejecutar
+### Obtener y devolver datos
 
 numbers = []
 result = int(input())
