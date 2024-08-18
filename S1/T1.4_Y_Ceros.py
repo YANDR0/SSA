@@ -1,5 +1,7 @@
 
 
+### Legendre específico para 5
+
 def trailingZeroes(n):
     count = 0
     while(n > 0):
