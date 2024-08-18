@@ -6,7 +6,7 @@ def legendre(n, p):
     while(n > 0):
         n //= p
         count += n
-    return count
+    return int(count)
 
 
 ### Cantidad de digitos, casi igual que legendre
@@ -19,19 +19,22 @@ def digits(n, b):
     return count
 
 
-### Factores primos de un número
-def factors(n):
-    f = []
+### Factores primo más grande y sus apariciones
+def bigFactor(n):
+    factor = 1
+    count = 0
     i = 2
     while i*i <= n: 
         while(n % i == 0):
-            f.append(i)
+            factor = i
+            count = 1 if factor != i else count + 1 
             n /= i
         i += 1
-    if(n > 1):
-        f.append(i)
 
-    return f
+    if(n > 1):
+        factor = n
+        count = 1
+    return factor, count
 
 
 
@@ -46,5 +49,11 @@ while(args):
     args = input()
 
 for i in inp:
-    num = i[0]
-    base = i[1]
+    num = int(i[0])
+    base = int(i[1])
+
+    f, c = bigFactor(base)
+    zeros = legendre(num, f)
+    zeros //= c
+
+    print(zeros)
