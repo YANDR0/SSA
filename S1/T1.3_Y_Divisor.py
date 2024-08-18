@@ -2,7 +2,7 @@
 
 ### Buscar el divisor primo más grande
 
-def max_Factor(n):
+def maxFactor(n):
 
     n = n if n > 0 else n * -1
     factor = -1
@@ -34,4 +34,4 @@ while(n != 0):
     n = int(input())
 
 for i in numbers:
-    print(max_Factor(i))
+    print(maxFactor(i))

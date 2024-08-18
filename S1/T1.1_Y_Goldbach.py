@@ -5,7 +5,7 @@
 primes = []
 max = 0
 
-def fill_sieve(size):
+def fillSieve(size):
     sieve = [0] * size
     for i in range(2, size, 1):
         if(sieve[i]):
@@ -38,7 +38,7 @@ while(result != 0):
     numbers.append(result)
     result = int(input())
 
-sieve = fill_sieve(max)
+sieve = fillSieve(max)
 
 for i in numbers:
     print(goldbach(i))
