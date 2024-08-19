@@ -1,4 +1,5 @@
 
+from math import log
 
 ### Formula de legendre para para multiplicidad de primos en factoriales
 def legendre(n, p):
@@ -9,14 +10,12 @@ def legendre(n, p):
     return int(count)
 
 
-### Cantidad de digitos, casi igual que legendre
-### trabaja sobre el resultado, tons no sirve :v 
-def digits(n, b):
-    count = 0
-    while(n > 0):
-        n //= b
-        count += 1
-    return count
+### Suma de los logaritmos de cada miembro del factorial
+def numDigits(n, b):
+    sum = 0
+    for i in range(1, n+1):
+        sum += log(i) / log(b)
+    return sum
 
 
 ### Factores primo más grande y sus apariciones
@@ -26,16 +25,16 @@ def bigFactor(n):
     i = 2
     while i*i <= n: 
         while(n % i == 0):
-            factor = i
             count = 1 if factor != i else count + 1 
+            factor = i
             n /= i
         i += 1
 
     if(n > 1):
         factor = n
         count = 1
+    
     return factor, count
-
 
 
 ### Entrada de datos
@@ -56,4 +55,9 @@ for i in inp:
     zeros = legendre(num, f)
     zeros //= c
 
-    print(zeros)
+    digits = int(numDigits(num, base)) + 1
+
+    print(str(zeros) + " " + str(digits))
+
+print("")
+

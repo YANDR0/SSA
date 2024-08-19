@@ -3,12 +3,10 @@
 ### Buscar el divisor primo más grande
 
 def maxFactor(n):
-
     n = n if n > 0 else n * -1
     factor = -1
     change = 0
     i = 2
-
     while i*i <= n: 
         while(n % i == 0):
             if(i != factor): 
@@ -16,11 +14,9 @@ def maxFactor(n):
                 change += 1
             n /= i
         i += 1
-    
     if(n > 1):
         factor = n
         change += 1
-
     return int(factor) if change > 1 else -1
             
 
@@ -35,3 +31,5 @@ while(n != 0):
 
 for i in numbers:
     print(maxFactor(i))
+
+    
